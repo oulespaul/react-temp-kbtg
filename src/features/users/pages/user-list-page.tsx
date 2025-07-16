@@ -71,29 +71,29 @@ export function UserListPage() {
 
   if (error) {
     return (
-      <Card className="max-w-md mx-auto">
+      <Card className="max-w-md mx-auto bg-white border-error">
         <CardHeader>
-          <CardTitle className="text-destructive">Error</CardTitle>
+          <CardTitle className="text-error">Error</CardTitle>
           <CardDescription>Failed to load users</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground mb-4">{error}</p>
-          <Button onClick={clearError}>Try Again</Button>
+          <p className="text-sm text-neutral-500 mb-4">{error}</p>
+          <Button onClick={clearError} className="bg-web-green-500 hover:bg-web-green-600 text-white">Try Again</Button>
         </CardContent>
       </Card>
     )
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Users</h1>
-          <p className="text-muted-foreground">Manage your users</p>
+          <h1 className="text-3xl font-bold text-neutral-900">Users</h1>
+          <p className="text-neutral-500">Manage your users</p>
         </div>
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="bg-web-green-500 hover:bg-web-green-600 text-white">
               <Plus className="h-4 w-4 mr-2" />
               Add User
             </Button>
@@ -111,15 +111,15 @@ export function UserListPage() {
       </div>
 
       {isLoading ? (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }, (_, i) => `skeleton-${Date.now()}-${i}`).map((key) => (
-            <Card key={key} className="animate-pulse">
+            <Card key={key} className="animate-pulse bg-white border-neutral-200">
               <CardHeader>
                 <div className="flex items-center space-x-4">
-                  <div className="rounded-full bg-muted h-10 w-10" />
+                  <div className="rounded-full bg-neutral-200 h-10 w-10" />
                   <div className="space-y-2 flex-1">
-                    <div className="h-4 bg-muted rounded w-3/4" />
-                    <div className="h-3 bg-muted rounded w-1/2" />
+                    <div className="h-4 bg-neutral-200 rounded w-3/4" />
+                    <div className="h-3 bg-neutral-200 rounded w-1/2" />
                   </div>
                 </div>
               </CardHeader>
@@ -127,9 +127,9 @@ export function UserListPage() {
           ))}
         </div>
       ) : (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {users.map((user) => (
-            <Card key={user.id} className="hover:shadow-md transition-shadow">
+            <Card key={user.id} className="hover:shadow-md transition-shadow bg-white border-neutral-200">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
@@ -140,14 +140,14 @@ export function UserListPage() {
                         className="rounded-full h-10 w-10 object-cover"
                       />
                     ) : (
-                      <div className="rounded-full bg-muted h-10 w-10 flex items-center justify-center">
-                        <span className="text-sm font-medium">
+                      <div className="rounded-full bg-neutral-100 h-10 w-10 flex items-center justify-center">
+                        <span className="text-sm font-medium text-neutral-700">
                           {user.name.split(' ').map(n => n[0]).join('').toUpperCase()}
                         </span>
                       </div>
                     )}
                     <div>
-                      <CardTitle className="text-lg">{user.name}</CardTitle>
+                      <CardTitle className="text-lg text-neutral-900">{user.name}</CardTitle>
                       <CardDescription>{user.email}</CardDescription>
                     </div>
                   </div>
@@ -156,6 +156,7 @@ export function UserListPage() {
                       variant="ghost"
                       size="icon"
                       onClick={() => openEditDialog(user)}
+                      className="text-neutral-500 hover:text-web-green-500 hover:bg-web-green-50"
                     >
                       <Pencil className="h-4 w-4" />
                     </Button>
@@ -163,6 +164,7 @@ export function UserListPage() {
                       variant="ghost"
                       size="icon"
                       onClick={() => openDeleteDialog(user)}
+                      className="text-neutral-500 hover:text-error hover:bg-red-50"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -173,12 +175,12 @@ export function UserListPage() {
                 <div className="flex items-center justify-between">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                     user.status === 'active' 
-                      ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
-                      : 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200'
+                      ? 'bg-web-green-100 text-web-green-800'
+                      : 'bg-neutral-100 text-neutral-700'
                   }`}>
                     {user.status}
                   </span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-neutral-500">
                     {new Date(user.createdAt).toLocaleDateString()}
                   </span>
                 </div>
@@ -219,12 +221,14 @@ export function UserListPage() {
             <Button 
               variant="outline" 
               onClick={() => setIsDeleteDialogOpen(false)}
+              className="border-neutral-200 text-neutral-700 hover:bg-neutral-50"
             >
               Cancel
             </Button>
             <Button 
               variant="destructive" 
               onClick={handleDeleteUser}
+              className="bg-error hover:bg-red-600 text-white"
             >
               Delete
             </Button>

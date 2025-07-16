@@ -22,12 +22,12 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-50">
       {/* Header */}
-      <header className="border-b">
+      <header className="border-b border-neutral-200 bg-white">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            <Link to="/" className="text-xl font-bold">
+            <Link to="/" className="text-xl font-bold text-neutral-900">
               React App
             </Link>
             <nav className="flex space-x-4">
@@ -39,8 +39,8 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
                     to={item.href}
                     className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       location.pathname === item.href
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                        ? "bg-web-green-500 text-white"
+                        : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50"
                     }`}
                   >
                     {Icon && <Icon className="h-4 w-4" />}
@@ -54,7 +54,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
             variant="outline"
             size="icon"
             onClick={toggleTheme}
-            className="h-9 w-9"
+            className="h-9 w-9 border-neutral-200 text-neutral-700 hover:bg-neutral-50"
           >
             {theme === "light" ? (
               <Moon className="h-4 w-4" />
@@ -66,7 +66,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-12">
         {children || <Outlet />}
       </main>
     </div>

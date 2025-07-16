@@ -45,9 +45,9 @@ export function UserForm({ defaultValues, onSubmit }: UserFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label htmlFor="name" className="text-sm font-medium">
+        <label htmlFor="name" className="text-sm font-medium text-neutral-900">
           Name *
         </label>
         <input
@@ -55,14 +55,14 @@ export function UserForm({ defaultValues, onSubmit }: UserFormProps) {
           type="text"
           value={formData.name}
           onChange={handleChange('name')}
-          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-web-green-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Enter full name"
           required
         />
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="email" className="text-sm font-medium">
+        <label htmlFor="email" className="text-sm font-medium text-neutral-900">
           Email *
         </label>
         <input
@@ -70,14 +70,14 @@ export function UserForm({ defaultValues, onSubmit }: UserFormProps) {
           type="email"
           value={formData.email}
           onChange={handleChange('email')}
-          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-web-green-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="Enter email address"
           required
         />
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="avatar" className="text-sm font-medium">
+        <label htmlFor="avatar" className="text-sm font-medium text-neutral-900">
           Avatar URL
         </label>
         <input
@@ -85,7 +85,7 @@ export function UserForm({ defaultValues, onSubmit }: UserFormProps) {
           type="url"
           value={formData.avatar}
           onChange={handleChange('avatar')}
-          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex h-10 w-full rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-web-green-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           placeholder="https://example.com/avatar.jpg (optional)"
         />
       </div>
@@ -94,6 +94,7 @@ export function UserForm({ defaultValues, onSubmit }: UserFormProps) {
         <Button 
           type="submit" 
           disabled={isSubmitting || !formData.name.trim() || !formData.email.trim()}
+          className="bg-web-green-500 hover:bg-web-green-600 text-white disabled:bg-neutral-300"
         >
           {isSubmitting ? 'Saving...' : defaultValues ? 'Update User' : 'Create User'}
         </Button>
