@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 import { DefaultLayout } from '@/components/layouts/default-layout'
 import { HomePage } from '@/pages/home-page'
 import { UserListPage } from '@/features/users/pages/user-list-page'

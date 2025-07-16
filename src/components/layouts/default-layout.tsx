@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { Outlet, Link, useLocation } from "react-router-dom"
+import { Outlet, Link, useLocation } from "react-router"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { Moon, Sun, Users } from "lucide-react"
