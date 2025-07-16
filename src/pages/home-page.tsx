@@ -1,9 +1,13 @@
+import { useState } from 'react'
 import { Link } from 'react-router'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Users, Zap, Shield, Palette } from 'lucide-react'
+import { DatePicker } from '@/components/ui/date-picker'
+import { Users, Zap, Shield, Palette, Calendar } from 'lucide-react'
 
 export function HomePage() {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+
   const features = [
     {
       icon: Users,
@@ -81,6 +85,53 @@ export function HomePage() {
           )
         })}
       </div>
+
+      {/* DatePicker Demo */}
+      <Card className="bg-white border-neutral-200 rounded-lg">
+        <CardHeader className="p-8 pb-6">
+          <CardTitle className="text-2xl text-neutral-900 flex items-center gap-2">
+            <Calendar className="h-6 w-6 text-web-green-500" />
+            DatePicker Component
+          </CardTitle>
+          <CardDescription className="text-neutral-500">
+            Interactive date picker component with calendar interface
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="p-8 pt-0">
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm font-medium text-neutral-900 mb-2">Select a date:</p>
+              <DatePicker 
+                value={selectedDate}
+                onChange={setSelectedDate}
+                placeholder="Choose date..."
+                className="w-48"
+              />
+            </div>
+            {selectedDate && (
+              <div className="p-4 bg-web-green-50 border border-web-green-200 rounded-lg">
+                <p className="text-sm font-medium text-web-green-800">
+                  Selected Date: {selectedDate.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </p>
+              </div>
+            )}
+            <div className="text-sm text-neutral-500">
+              <p>Features:</p>
+              <ul className="list-disc list-inside mt-1 space-y-1">
+                <li>Click outside to close calendar</li>
+                <li>Navigate between months with arrow buttons</li>
+                <li>Keyboard accessible with Tab and Enter/Space</li>
+                <li>Follows your design system colors</li>
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Tech Stack */}
       <Card className="bg-white border-neutral-200 rounded-lg">

@@ -1,5 +1,6 @@
 export { Button } from './button'
 export { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card'
+export { DatePicker } from './date-picker'
 export { Dialog } from './dialog'
 export { Input } from './input'
 export { Label } from './label'
