@@ -1,4 +1,4 @@
-import { TextLink } from '@/components/atoms/text-link'
+import { TextLink } from '@/components/navigation/text-link'
 
 export function AuthFooter() {
   return (

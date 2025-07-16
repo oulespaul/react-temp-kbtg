@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
-import { Input } from '@/components/atoms/input'
-import { Label } from '@/components/atoms/label'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 
 export interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {

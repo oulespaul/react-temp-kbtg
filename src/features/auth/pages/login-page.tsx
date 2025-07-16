@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import { AuthLayout } from '@/components/templates/auth-layout'
-import { AuthCard } from '@/components/molecules/auth-card'
-import { LoginForm } from '@/components/organisms/login-form'
-import { AuthFooter } from '@/components/organisms/auth-footer'
+import { AuthLayout, AuthCard, LoginForm, AuthFooter } from '@/features/auth/components'
 
 interface LoginFormData {
   email: string

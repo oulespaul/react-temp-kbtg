@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { FormField } from '@/components/molecules/form-field'
-import { TextLink } from '@/components/atoms/text-link'
+import { FormField } from '@/components/forms/form-field'
+import { TextLink } from '@/components/navigation/text-link'
 
 interface LoginFormData {
   email: string
