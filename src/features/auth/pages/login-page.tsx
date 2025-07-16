@@ -4,6 +4,7 @@ import { AuthLayout, AuthCard, LoginForm, AuthFooter } from '@/features/auth/com
 interface LoginFormData {
   email: string
   password: string
+  birthday: Date | null
 }
 
 export function LoginPage() {
@@ -17,7 +18,11 @@ export function LoginPage() {
     
     setIsLoading(false)
     // Handle login logic here
-    console.log('Login data:', data)
+    console.log('Login data:', {
+      email: data.email,
+      password: data.password,
+      birthday: data.birthday ? data.birthday.toLocaleDateString() : 'Not selected'
+    })
   }
 
   return (
