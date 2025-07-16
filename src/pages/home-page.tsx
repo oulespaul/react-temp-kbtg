@@ -29,24 +29,24 @@ export function HomePage() {
   ]
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-24">
       {/* Hero Section */}
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <div className="text-center space-y-6">
+        <h1 className="text-5xl font-bold tracking-tight text-neutral-900">
           Welcome to React Workshop
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-xl text-neutral-500 max-w-2xl mx-auto">
           A modern React application built with Vite, TypeScript, TailwindCSS, and shadcn/ui.
           Featuring user management, dark mode, and extensible architecture.
         </p>
-        <div className="flex gap-4 justify-center">
-          <Button asChild size="lg">
+        <div className="flex gap-4 justify-center pt-6">
+          <Button asChild size="lg" className="bg-web-green-500 hover:bg-web-green-600 text-white px-8 py-4 rounded-md">
             <Link to="/users">
               <Users className="h-4 w-4 mr-2" />
               View Users
             </Link>
           </Button>
-          <Button variant="outline" size="lg" asChild>
+          <Button variant="outline" size="lg" asChild className="border-neutral-200 text-neutral-700 hover:bg-neutral-50 px-8 py-4 rounded-md">
             <a 
               href="https://github.com/your-username/react-workshop" 
               target="_blank" 
@@ -63,11 +63,11 @@ export function HomePage() {
         {features.map((feature) => {
           const Icon = feature.icon
           const content = (
-            <Card className="h-full hover:shadow-md transition-shadow">
-              <CardHeader>
-                <Icon className="h-8 w-8 text-primary" />
-                <CardTitle className="text-xl">{feature.title}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
+            <Card className="h-full hover:shadow-md transition-shadow bg-white border-neutral-200 rounded-lg p-6">
+              <CardHeader className="p-0 pb-4">
+                <Icon className="h-8 w-8 text-web-green-500 mb-3" />
+                <CardTitle className="text-xl text-neutral-900 mb-2">{feature.title}</CardTitle>
+                <CardDescription className="text-neutral-500">{feature.description}</CardDescription>
               </CardHeader>
             </Card>
           )
@@ -83,18 +83,18 @@ export function HomePage() {
       </div>
 
       {/* Tech Stack */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Tech Stack</CardTitle>
-          <CardDescription>
+      <Card className="bg-white border-neutral-200 rounded-lg">
+        <CardHeader className="p-8 pb-6">
+          <CardTitle className="text-2xl text-neutral-900">Tech Stack</CardTitle>
+          <CardDescription className="text-neutral-500">
             This application is built with modern technologies and best practices
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-3">
+        <CardContent className="p-8 pt-0">
+          <div className="grid gap-8 md:grid-cols-3">
             <div>
-              <h4 className="font-semibold mb-2">Frontend</h4>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h4 className="font-semibold mb-3 text-neutral-900">Frontend</h4>
+              <ul className="text-sm text-neutral-500 space-y-2">
                 <li>• React 18 with TypeScript</li>
                 <li>• Vite for build tooling</li>
                 <li>• React Router for routing</li>
@@ -102,8 +102,8 @@ export function HomePage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">UI Components</h4>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h4 className="font-semibold mb-3 text-neutral-900">UI Components</h4>
+              <ul className="text-sm text-neutral-500 space-y-2">
                 <li>• shadcn/ui components</li>
                 <li>• Radix UI primitives</li>
                 <li>• Lucide React icons</li>
@@ -111,8 +111,8 @@ export function HomePage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">State & Tools</h4>
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <h4 className="font-semibold mb-3 text-neutral-900">State & Tools</h4>
+              <ul className="text-sm text-neutral-500 space-y-2">
                 <li>• Zustand for state management</li>
                 <li>• ESLint + Prettier</li>
                 <li>• Vitest for testing</li>
