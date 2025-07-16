@@ -50,18 +50,23 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
               })}
             </nav>
           </div>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleTheme}
-            className="h-9 w-9 border-neutral-200 text-neutral-700 hover:bg-neutral-50"
-          >
+          <div className="flex items-center space-x-3">
+            <Button asChild variant="outline" size="sm" className="border-neutral-200 text-neutral-700 hover:bg-neutral-50">
+              <Link to="/login">Sign in</Link>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={toggleTheme}
+              className="h-9 w-9 border-neutral-200 text-neutral-700 hover:bg-neutral-50"
+            >
             {theme === "light" ? (
               <Moon className="h-4 w-4" />
             ) : (
               <Sun className="h-4 w-4" />
             )}
           </Button>
+          </div>
         </div>
       </header>
 
